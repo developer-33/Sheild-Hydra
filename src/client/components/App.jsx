@@ -1,8 +1,8 @@
 import { useState } from 'react';
 
-import Login from './components/Login';
+import Login from '/home/fletcher/Marvel_s_h/src/client/components/Login.jsx';
 
-import MyLogoComponent from './components/MyLogoComponent';
+import MyLogoComponent from '/home/fletcher/Marvel_s_h/src/client/components/MyLogoComponent.jsx';
 
 function App() {
 
