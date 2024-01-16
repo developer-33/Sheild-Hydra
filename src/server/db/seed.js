@@ -3,6 +3,8 @@ const { createUser } = require('./users');
 const { createShieldAgent } = require('./shield');
 const { createHydraAgent } = require('./hydra');
 
+
+
 const users = [
   {
     name: 'Emily Johnson',
@@ -36,50 +38,50 @@ const shieldAgents = [
     name: 'Phil Coulson',
     role: 'Director',
     status: 'Active',
-    Image_path:'https://imagekit.io/dashboard/media-library/detail/659f577b88c257da33052605'
+    image_path:'https://imagekit.io/dashboard/media-library/detail/659f577b88c257da33052605'
   },
   {
     name: 'Melinda May',
     role: 'Field Agent',
     status: 'Active',
-    Image_path: "https://imagekit.io/dashboard/media-library/detail/659f577b88c257da33052323"
+    image_path: "https://imagekit.io/dashboard/media-library/detail/659f577b88c257da33052323"
   },
   {
     name: 'Daisy Johnson',
     role: 'Field Agent',
     status: 'Active',
-    Image_path:'https://imagekit.io/dashboard/media-library/detail/659f577b88c257da330526f7'
+    image_path:'https://imagekit.io/dashboard/media-library/detail/659f577b88c257da330526f7'
   
   },
   {
     name: 'Leo Fitz',
     role: 'Scientist',
     status: 'Active',
-    Image_path:'https://imagekit.io/dashboard/media-library/detail/659f577b88c257da330526f7'
+    image_path:'https://imagekit.io/dashboard/media-library/detail/659f577b88c257da330526f7'
   },
   {
     name: 'Jemma Simmons',
     role: 'Scientist',
     status: 'Active',
-    Image_path:'https://imagekit.io/dashboard/media-library/detail/659f577b88c257da33052613'
+    image_path:'https://imagekit.io/dashboard/media-library/detail/659f577b88c257da33052613'
   },
  {
     name: 'Bobbi Morse',
     role: 'Field Agent',
     status: 'Active',
-    Image_path:'#'
+    image_path:'#'
  },
  {
     name: 'Lance Hunter',
     role: 'Field Agent',
     status: 'Active',
-    Image_path:'https://imagekit.io/dashboard/media-library/detail/659f577b88c257da3305252e'
+    image_path:'https://imagekit.io/dashboard/media-library/detail/659f577b88c257da3305252e'
  },
   {
     name: 'Alphonso Mackenzie',
     role: 'Mechanic',
     status: 'Active',
-    Image_path:'#'
+    image_path:'#'
   },
   // Add more agent objects as needed
 ];
@@ -183,7 +185,10 @@ const insertShieldAgents = async () => {
             await createShieldAgent({
               name: agent.name,
                role: agent.role, 
-               status: agent.status});
+               status: agent.status,
+                image_path: agent.image_path
+               
+              });
         }
         console.log('Seed data inserted successfully.');
     } catch (error) {

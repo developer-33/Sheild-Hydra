@@ -1,15 +1,35 @@
 const db = require('./client')
+const hydraAgents = []
+const createHydraAgent = async({ name = 'Agent Name', role, status }) => {
+  try {
+      const { rows: [agent] } = await db.query(`
+      INSERT INTO hydraAgents(name, role, status)
+      VALUES($1, $2, $3)
+      ON CONFLICT (name) DO NOTHING
+      RETURNING *`, [name, role, status]);
 
-function createHydraAgent(agent) {
-    // Validate the agent object
-    if (!agent.name || !agent.role || !agent.status) {
-      throw new Error('Invalid agent object');
+      return agent;
+  } catch (err) {
+      throw err;
+  }
+}
+
+
+  const getHydraAgents = async () => {
+    try {
+      const { rows: agent } = await db.query(`SELECT * FROM hydraAgents`);
+      if(!agent) {
+        return
+      }
+      return agent
+    } catch (err) {
+      throw err;
     }
-  
-    // Add the agent to the hydraAgents array
-    hydraAgents.push(agent);
   }
 
+
+
   module.exports = {
-        createHydraAgent
+        createHydraAgent,
+        getHydraAgents
 };
