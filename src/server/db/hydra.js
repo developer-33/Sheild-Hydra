@@ -15,13 +15,13 @@ const createHydraAgent = async({ name = 'Agent Name', role, status }) => {
 }
 
 
-  const getHydraAgents = async () => {
+  const getAllHydraAgents = async () => {
     try {
-      const { rows: agent } = await db.query(`SELECT * FROM hydraAgents`);
-      if(!agent) {
-        return
-      }
-      return agent
+      const { rows } = await db.query(
+        `SELECT * FROM hydraAgents`
+        );
+    
+      return rows;
     } catch (err) {
       throw err;
     }
@@ -31,5 +31,5 @@ const createHydraAgent = async({ name = 'Agent Name', role, status }) => {
 
   module.exports = {
         createHydraAgent,
-        getHydraAgents
+        getAllHydraAgents
 };

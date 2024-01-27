@@ -147,7 +147,7 @@ const createTables = async () => {
    await db.query(`
         CREATE TABLE shieldAgents(
             id SERIAL PRIMARY KEY,
-            name VARCHAR(255) NOT NULL,
+            name VARCHAR(255) UNIQUE NOT NULL,
             role VARCHAR(255) NOT NULL,
             status VARCHAR(255) NOT NULL,
             image_path VARCHAR(255) NOT NULL
@@ -156,7 +156,7 @@ const createTables = async () => {
     await db.query(`
           CREATE TABLE hydraAgents(
               id SERIAL PRIMARY KEY,
-              name VARCHAR(255) NOT NULL,
+              name VARCHAR(255) UNIQUE NOT NULL,
               role VARCHAR(255) NOT NULL,
               status VARCHAR(255) NOT NULL
              

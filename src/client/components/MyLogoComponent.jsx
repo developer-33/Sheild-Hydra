@@ -3,7 +3,7 @@ import logoGif from '/home/fletcher/wholeMarvel/capstone-app-template/src/client
 
 const MyLogoComponent = () => {
   return (
-    <div classstyle={{ width: '100px', height: '100px' }}>
+    <div class= "myLogo">
       <img src={logoGif} alt="Logo GIF" />
     </div>
   );

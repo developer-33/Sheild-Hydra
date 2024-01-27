@@ -50,3 +50,22 @@ npm run dev
 9. Open your browser at `http://localhost:3000`
 
 10. Build something cool! 😎
+
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+const Navbar = () => {
+  return (
+    <nav>
+      <ul style={{ display: 'flex', justifyContent: 'space-around', listStyle: 'none' }}>
+        <li><Link to="/">Home</Link></li>
+        <li><Link to="/shieldipedia">Shieldipedia</Link></li>
+        <li><Link to="/hydraipedia">Hydraipedia</Link></li>
+        <li><Link to="/shield-agents">Shield Agents</Link></li>
+        <li><Link to="/hydra">Hydra</Link></li>
+      </ul>
+    </nav>
+  );
+};
+
+export default Navbar;

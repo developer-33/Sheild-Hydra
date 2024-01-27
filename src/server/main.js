@@ -3,7 +3,7 @@ require('dotenv').config()
 const express = require('express');
 const router = require('vite-express');
 const app = express();
-
+let cors = require('cors')
 const bodyParser = require('body-parser')
 app.use(bodyParser.json());
 

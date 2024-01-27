@@ -1,24 +1,30 @@
 import React, { useState } from 'react';
 import CardFlip from 'react-card-flip';
+import './carousel.css';
+import { photos } from './Photo.js';
 
 const PhotoCarousel = ({ photos }) => {
-  const [isFlipped, setIsFlipped] = useState(false);
+ 
+  const [flippedCards, setFlippedCards] = useState([]);
 
-  const handleFlip = () => {
-    setIsFlipped(!isFlipped);
-  };
+  const handleFlip = (index) => {
+    setFlippedCards({
+      ...flippedCards,
+      [index]: !flippedCards[index]
+    });
+  []};
 
   return (
     <div>
       {photos.map((photo, index) => (
-        <CardFlip key={index} isFlipped={isFlipped} flipDirection="horizontal">
+        <CardFlip key={index} isFlipped={!!flippedCards[index]} flipDirection="horizontal">
           {/* Front of the card */}
-          <div onClick={handleFlip}>
+          <div onClick={() => handleFlip(index)}>
             <img src={photo.frontImage} alt={`Front ${index}`} />
           </div>
           
           {/* Back of the card */}
-          <div onClick={handleFlip}>
+          <div onClick={() => handleFlip(index)}>
             <img src={photo.backImage} alt={`Back ${index}`} />
           </div>
         </CardFlip>
@@ -28,6 +34,33 @@ const PhotoCarousel = ({ photos }) => {
 };
 
 export default PhotoCarousel;
+// const PhotoCarousel = ({ photos }) => {
+//   const [isFlipped, setIsFlipped] = useState(false);
+
+//   const handleFlip = () => {
+//     setIsFlipped(!isFlipped);
+//   };
+
+//   return (
+//     <div>
+//       {photos.map((photo, index) => (
+//         <CardFlip key={index} isFlipped={isFlipped} flipDirection="horizontal">
+//           {/* Front of the card */}
+//           <div onClick={handleFlip}>
+//             <img src={photo.frontImage} alt={`Front ${index}`} />
+//           </div>
+          
+//           {/* Back of the card */}
+//           <div onClick={handleFlip}>
+//             <img src={photo.backImage} alt={`Back ${index}`} />
+//           </div>
+//         </CardFlip>
+//       ))}
+//     </div>
+//   );
+// };
+
+// export default PhotoCarousel;
 
 
 // import React, { useState } from 'react';
